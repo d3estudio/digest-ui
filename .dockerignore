@@ -1,0 +1,10 @@
+.git/
+node_modules/
+poc/
+*.css
+*.css.map
+Makefile
+Dockerfile
+.gitignore
+.DS_Store
+docker-compose.yml
