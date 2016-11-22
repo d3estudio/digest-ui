@@ -10,8 +10,8 @@ services:
     external_links:
       - digest_mongo_1:mongo
     networks:
-      - digest_digest-network
+      - digest_default
 
 networks:
-  digest_digest-network:
+  digest_default:
     external: true

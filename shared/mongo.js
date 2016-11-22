@@ -56,10 +56,18 @@ Mongo.prototype = {
         });
       })
       .then(proms => Promise.all(proms))
-      .then(docs => docs.map(d => ({
-        reactions: d.reactions,
-        data: JSON.parse(d.embededcontent),
-      })))
+      .then(docs => docs.map(d => {
+        try {
+          return {
+            reactions: d.reactions,
+            user: d.user,
+            data: JSON.parse(d.embededcontent),
+          }
+        } catch(ex) {
+          console.log(`Error reading document with ID ${d.id}: ${ex}`);
+        }
+      }))
+      .then(docs => docs.filter(d => !!d))
   }
 };
 
