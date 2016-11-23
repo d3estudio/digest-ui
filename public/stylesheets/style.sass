@@ -38,6 +38,9 @@
 
 /*********************************************/
 
+a
+  text-decoration: none
+
 h1
   font-family: Catamaran
   font-size: 24.25px
@@ -56,10 +59,41 @@ h1
   line-height: 20px
   padding-top: 5px
   cursor: pointer
+  position: relative
+
+  .userid
+    opacity: 0
+    width: 280px
+    background: #fff
+    overflow: auto
+    position: absolute
+    top: 27px
+    left: 66px
+
+    img
+      width: 80px
+      float: left
+      margin-right: 10px
+
+    .username
+      display: block
+      font-family: Catamaran
+      font-size: 20px
+      letter-spacing: -0.01px
+      font-weight: normal !important
+      cursor: pointer
+      color: #3f3f3f
+      margin-top: 11px
+
+    .usertitle
+      color: #505050
 
   .by
     text-decoration: underline dotted
     cursor: help
+
+  .by:hover + .userid
+    opacity: 1
 
 .desc
   padding-top: 5px
@@ -80,13 +114,11 @@ h1
   letter-spacing: 9.22px
   position: absolute
   bottom: 10px
-  cursor: help
 
 .emoji
   height: 30px
   vertical-align: baseline
   margin-right: 8px
-
 
 /*********************************************/
 

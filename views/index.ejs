@@ -27,7 +27,7 @@
       </div>
     </script>
     <script type="text/template" id="full-item">
-      <div class="pure-u-1 full">
+      <div class="pure-u-1 full" data-url="{{ url }}">
         <div class="background">
           <div class="case">
             <div class="cover" style="background-image: url({{ imageUrl }})"></div>
@@ -36,10 +36,22 @@
           <div class="bg" style="background-color: {{ backgroundColor }}"></div>
         </div>
         <div class="content">
-          <h1 style="color: {{ primaryColor }};">
-            {{ title }}
+          <h1>
+            <a href="{{ url }}" target="_blank" style="color: {{ primaryColor }};">
+              {{ title }}
+            </a>
           </h1>
-          <div class="found" style="color: {{ secondaryColor }};">found by <span class="by" data-uname="{{ user.username }}" style="text-decoration-color: {{ detailColor }};">{{ user.realname }}</span></div>
+          <div class="found" style="color: {{ secondaryColor }};">
+            found by
+            <span class="by" data-uname="{{ user.username }}" style="text-decoration-color: {{ detailColor }};">
+              {{ user.realname }}
+            </span>
+            <div class="userid">
+              <img src="{{ user.image }}" alt="">
+              <span class="username">@{{ user.username }}</span>
+              <span class="usertitle">{{ user.title }}</span>
+            </div>
+          </div>
           <div class="desc" style="color: {{ detailColor }};">
             {{ summary }}
           </div>
@@ -59,10 +71,22 @@
           </div>
         </div>
         <div class="content">
-          <h1 style="color: {{ primaryColor }};">
-            {{ title }}
+          <h1>
+            <a href="{{ url }}" target="_blank" style="color: {{ primaryColor }};">
+              {{ title }}
+            </a>
           </h1>
-          <div class="found" style="color: {{ secondaryColor }};">found by <span class="by" data-uname="{{ user.username }}" style="text-decoration-color: {{ detailColor }};">{{ user.realname }}</span></div>
+          <div class="found" style="color: {{ secondaryColor }};">
+            found by
+            <span class="by" data-uname="{{ user.username }}" style="text-decoration-color: {{ detailColor }};">
+              {{ user.realname }}
+            </span>
+            <div class="userid">
+              <img src="{{ user.image }}" alt="">
+              <span class="username">@{{ user.username }}</span>
+              <span class="usertitle">{{ user.title }}</span>
+            </div>
+          </div>
           <div class="desc" style="color: {{ detailColor }};">
             {{ summary }}
           </div>

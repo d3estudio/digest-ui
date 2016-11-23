@@ -17,14 +17,15 @@ const Mongo = function() {
 }
 
 Mongo.prototype = {
-  getEmoji: function(names) {
+  getEmoji: function(items) {
     return this.client
       .collection('emojis')
-      .find({ name: { $in: names }})
+      .find({ name: { $in: items.map(i => i.name) }})
       .toArray()
       .then(m => m.map(e => ({
         name: e.name,
-        repr: (e.url || e.unicode)
+        repr: (e.url || e.unicode),
+        count: items.find(i => i.name === e.name).count,
       })))
   },
   getItems: function(page = 1) {
@@ -48,7 +49,7 @@ Mongo.prototype = {
       .then(docs => {
         return docs.map(d => {
           return this
-            .getEmoji(Object.keys(d.reactions))
+            .getEmoji(Object.keys(d.reactions).map(r => ({ name: r, count: d.reactions[r]})))
             .then(emojis => {
               d.reactions = emojis;
               return d

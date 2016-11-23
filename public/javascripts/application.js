@@ -24,6 +24,7 @@
   let halfNumber = 0;
   function process(arr) {
     return arr.map(r => {
+      debugger;
       if(r.data.type === 'rich-link') {
         const reactions = r.reactions.map(processReaction).join('');
         const data = r.data.data;
@@ -38,6 +39,7 @@
           emojis: new Handlebars.SafeString(reactions),
           user: r.user,
           perRow: halfsQtyForScreen,
+          url: data.url,
         }
       } else if(r.data.type === 'twitter') {
         console.log(r);
@@ -59,6 +61,7 @@
           emojis: new Handlebars.SafeString(reactions),
           user: r.user,
           perRow: halfsQtyForScreen,
+          url: data.url,
         }
       }
     })
@@ -86,7 +89,7 @@
     })
     .join('');
   }
-  $.get('http://beta.digest.d3.do/digest')
+  $.get('/digest')
     .then(r => process(r))
     .then(html => grid.append(html))
     .catch(console.error);

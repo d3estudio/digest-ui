@@ -3,15 +3,11 @@ services:
   api:
     build: .
     ports:
-      - 3000:3000
+      - 8081:3000
     volumes:
       - .:/app
       - /app/node_modules
-    external_links:
-      - digest_mongo_1:mongo
-    networks:
-      - digest_default
-
-networks:
-  digest_default:
-    external: true
+    links:
+      - mongo
+  mongo:
+    image: mongo
