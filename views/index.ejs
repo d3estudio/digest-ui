@@ -17,17 +17,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
     <script type="text/template" id="full-embed">
-      <div class="pure-u-1">
+      <div class="pure-u-1 {{ extraClass }}">
         {{ embed }}
       </div>
     </script>
     <script type="text/template" id="half-embed">
-      <div class="pure-u-1-{{perRow}} half">
+      <div class="pure-u-1-{{perRow}} half {{ extraClass }}">
         {{ embed }}
       </div>
     </script>
     <script type="text/template" id="full-item">
-      <div class="pure-u-1 full" data-url="{{ url }}">
+      <div class="pure-u-1 full {{ extraClass }}" data-url="{{ url }}">
         <div class="background">
           <div class="case">
             <div class="cover" style="background-image: url({{ imageUrl }})"></div>
@@ -62,7 +62,7 @@
       </div>
     </script>
     <script type="text/template" id="half-item">
-      <div class="pure-u-1-{{perRow}} half">
+      <div class="pure-u-1-{{perRow}} half  {{ extraClass }}">
         <div class="background">
           <div class="bg" style="background-color: {{ backgroundColor }}"></div>
           <div class="case">
